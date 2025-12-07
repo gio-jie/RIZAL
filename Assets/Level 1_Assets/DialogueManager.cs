@@ -1,14 +1,13 @@
 using UnityEngine;
-using UnityEngine.UI; // For Images
-using TMPro;          // For Text
+using UnityEngine.UI;
+using TMPro;
 
-// This little class lets us type dialogue nicely in the Inspector
 [System.Serializable]
 public class DialogueEntry
 {
     [TextArea(3, 10)]
-    public string sentence;       // What they say
-    public bool isRightSide;      // If checked, Despujol speaks. If empty, Rizal speaks.
+    public string sentence;
+    public bool isRightSide; // True = Rizal, False = Other
 }
 
 public class DialogueManager : MonoBehaviour
@@ -16,30 +15,39 @@ public class DialogueManager : MonoBehaviour
     [Header("UI References")]
     public GameObject dialoguePanel;
     public TextMeshProUGUI dialogueText;
-    public Image imageLeft;   // RIzal's spot
-    public Image imageRight;  // Despujol's spot
+    public TextMeshProUGUI nameText; // <--- NEW: Drag your NameText object here
 
-    [Header("Character Portraits")]
-    public Sprite spriteRizal; // Drag Rizal's face here
-    public Sprite spriteDespujol;   // Drag Despujol's face here
+    public Image imageLeft;
+    public Image imageRight;
+
+    [Header("Character Info")]
+    public string leftCharacterName = "Paciano"; // <--- NEW: Type name here
+    public Sprite spriteLeft;
+
+    public string rightCharacterName = "Rizal";  // <--- NEW: Type name here
+    public Sprite spriteRight;
 
     [Header("Game Links")]
-    public RizalMovement playerScript; // Link to freeze movement
+    public RizalMovement playerScript;
 
     [Header("The Conversation")]
-    public DialogueEntry[] conversation; // We will fill this in Unity
+    public DialogueEntry[] conversation;
 
     private int index = 0;
 
     void Start()
     {
-        // 1. Setup Images
-        imageLeft.sprite = spriteRizal;
-        imageRight.sprite = spriteDespujol;
+        // 1. Setup Images once
+        imageLeft.sprite = spriteLeft;
+        imageRight.sprite = spriteRight;
 
-        // 2. Freeze the Player
+        // 2. Freeze Player
         if (playerScript != null)
+        {
             playerScript.enabled = false;
+            // Also stop the Rigidbody to prevent sliding
+            playerScript.GetComponent<Rigidbody2D>().linearVelocity = Vector2.zero;
+        }
 
         // 3. Start Dialogue
         dialoguePanel.SetActive(true);
@@ -49,44 +57,49 @@ public class DialogueManager : MonoBehaviour
 
     public void OnNextButton()
     {
-        index++; // Move to next line
-
+        index++;
         if (index < conversation.Length)
         {
-            UpdateUI(); // Show next line
+            UpdateUI();
         }
         else
         {
-            EndDialogue(); // Finish
+            EndDialogue();
         }
     }
 
     void UpdateUI()
     {
-        // 1. Update the Text
+        // Update the Sentence
         dialogueText.text = conversation[index].sentence;
 
-        // 2. Decide which image to highlight
+        // Update the Images AND the Name
         if (conversation[index].isRightSide)
         {
-            // Right (Despujol) is talking
+            // Right Side (Rizal) logic
             imageRight.gameObject.SetActive(true);
-            imageLeft.gameObject.SetActive(false); // Hide Despujol
+            imageLeft.gameObject.SetActive(false);
+
+            // Set Name to Rizal
+            nameText.text = rightCharacterName; // <--- NEW
+            nameText.alignment = TextAlignmentOptions.Right; // Optional: Align name to right
         }
         else
         {
-            // Left (Rizal) is talking
-            imageLeft.gameObject.SetActive(true); // Show Despujol
+            // Left Side (Paciano) logic
+            imageLeft.gameObject.SetActive(true);
             imageRight.gameObject.SetActive(false);
+
+            // Set Name to Paciano
+            nameText.text = leftCharacterName; // <--- NEW
+            nameText.alignment = TextAlignmentOptions.Left; // Optional: Align name to left
         }
     }
 
     void EndDialogue()
     {
-        // Close the panel
         dialoguePanel.SetActive(false);
 
-        // Unfreeze the Player so the game begins
         if (playerScript != null)
             playerScript.enabled = true;
     }

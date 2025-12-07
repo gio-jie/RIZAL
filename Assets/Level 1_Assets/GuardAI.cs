@@ -6,7 +6,7 @@ public class GuardAI : MonoBehaviour
     [Header("Settings")]
     public float walkSpeed = 1f;
     public float chaseSpeed = 2f;
-    public float visionRange = 4f;
+    public float visionRange = 6f;
     [Range(0, 360)] public float viewAngle = 90f;
 
     [Header("References")]
@@ -121,7 +121,12 @@ public class GuardAI : MonoBehaviour
         if (collision.gameObject.GetComponent<RizalMovement>())
         {
             Debug.Log("CAUGHT BY GUARD!");
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            
+            LevelManager manager = FindFirstObjectByType<LevelManager>();
+            if (manager != null)
+            {
+                manager.GameOver();
+            }
         }
     }
 }
