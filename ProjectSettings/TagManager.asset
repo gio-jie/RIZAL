@@ -11,10 +11,13 @@ TagManager:
   - 
   - Water
   - UI
-  - Player
   - Wall
   - Item
   - Enemy
+  - 
+  - 
+  - Player
+  - Walls
   - 
   - 
   - 
@@ -47,5 +50,6 @@ TagManager:
   - name: Foreground
     uniqueID: 1966068929
     locked: 0
+
   m_RenderingLayers:
   - Default
