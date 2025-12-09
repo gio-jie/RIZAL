@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using System.Collections.Generic;
 
 public class LevelManager : MonoBehaviour
 {
@@ -14,6 +15,10 @@ public class LevelManager : MonoBehaviour
     [Header("Game State")]
     public int totalItems = 3;
     private int itemsCollected = 0;
+
+    // --- LEVEL 2 NEW FEATURES (Added) ---
+    public List<string> collectedKeys = new List<string>(); 
+    // ------------------------------------
 
     void Start()
     {
@@ -34,6 +39,22 @@ public class LevelManager : MonoBehaviour
         {
             WinGame();
         }
+    }
+
+    // --- NEW FUNCTION: Add Key (Safe to add, won't break Level 1) ---
+    public void AddKey(string keyName)
+    {
+        if (!collectedKeys.Contains(keyName))
+        {
+            collectedKeys.Add(keyName);
+            Debug.Log("Picked up key: " + keyName);
+        }
+    }
+
+    // --- NEW FUNCTION: Check Key ---
+    public bool HasKey(string keyName)
+    {
+        return collectedKeys.Contains(keyName);
     }
 
     void UpdateScoreUI()
