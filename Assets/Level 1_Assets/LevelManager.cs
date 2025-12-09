@@ -8,26 +8,32 @@ public class LevelManager : MonoBehaviour
     [Header("UI References")]
     public TextMeshProUGUI scoreText;
     public GameObject winPanel;
-    private GameObject joystickCanvas; // Optional: To hide joystick on win
-    private GameObject interactButton; // Optional: To hide button on win
+    
+    // --- ORIGINALS (Wag burahin para di masira connection sa Level 1) ---
+    public GameObject joystickCanvas; 
+    public GameObject interactButton; 
     public GameObject gameOverPanel;
+    // -------------------------------------------------------------------
 
-    [Header("Game State")]
+    [Header("Game Settings")]
     public int totalItems = 3;
     private int itemsCollected = 0;
 
-    // --- LEVEL 2 NEW FEATURES (Added) ---
+    // --- ITO ANG BAGO: Dito mo ita-type ang text sa Inspector ---
+    [TextArea] // Ginagawa nitong malaki ang typing box sa inspector
+    public string objectiveText = "Collected Items: "; 
+    // ---------------------------------------------------------
+
+    // --- LEVEL 2 KEYS ---
     public List<string> collectedKeys = new List<string>(); 
-    // ------------------------------------
 
     void Start()
     {
-        // CRITICAL: Always unfreeze time when a scene loads!
         Time.timeScale = 1f;
-
-        UpdateScoreUI();
-        winPanel.SetActive(false);
-        gameOverPanel.SetActive(false);
+        UpdateScoreUI(); // Tatawagin nito agad ang text pagka-start
+        
+        if(winPanel != null) winPanel.SetActive(false);
+        if(gameOverPanel != null) gameOverPanel.SetActive(false);
     }
 
     public void ItemCollected()
@@ -41,7 +47,6 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    // --- NEW FUNCTION: Add Key (Safe to add, won't break Level 1) ---
     public void AddKey(string keyName)
     {
         if (!collectedKeys.Contains(keyName))
@@ -51,28 +56,29 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    // --- NEW FUNCTION: Check Key ---
     public bool HasKey(string keyName)
     {
         return collectedKeys.Contains(keyName);
     }
 
+    // --- ITO ANG NAGBAGO: Pinagsasama niya ang Text + Score ---
     void UpdateScoreUI()
     {
-        scoreText.text = "Collected Quinine, Herbal Leaves, Bandages: " + itemsCollected + "/" + totalItems;
+        if (scoreText != null)
+        {
+            // Format: "Yung Text Mo" + " 1/3"
+            scoreText.text = objectiveText + " " + itemsCollected + "/" + totalItems;
+        }
     }
+    // ----------------------------------------------------------
 
     void WinGame()
     {
         Debug.Log("Level Complete!");
-
-        // 1. Show Win Screen
-        winPanel.SetActive(true);
-
-        // 2. CRITICAL: Stop the Physics and Game Time
+        if (winPanel != null) winPanel.SetActive(true);
         Time.timeScale = 0f;
-
-        // 3. (Optional) Disable Controls so you can't click things behind the panel
+        
+        // Safety check para sa originals
         if (joystickCanvas != null) joystickCanvas.SetActive(false);
         if (interactButton != null) interactButton.SetActive(false);
     }
@@ -80,30 +86,11 @@ public class LevelManager : MonoBehaviour
     public void GameOver()
     {
         Debug.Log("Game Over!");
-        gameOverPanel.SetActive(true);
-        Time.timeScale = 0f; // Freeze the game
+        if (gameOverPanel != null) gameOverPanel.SetActive(true);
+        Time.timeScale = 0f;
     }
 
-    public void OnRestartPressed()
-    {
-        Time.timeScale = 1f; // Unfreeze time
-        // Reload the current scene
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-    }
-
-    public void OnNextLevelPressed()
-    {
-        // Unfreeze before leaving
-        Time.timeScale = 1f;
-
-        // Load next scene (Ensure you have added scenes in Build Settings!)
-        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-        SceneManager.LoadScene(currentSceneIndex + 1);
-    }
-
-    public void OnMainMenuPressed()
-    {
-        Time.timeScale = 1f;
-        SceneManager.LoadScene("MainMenu");
-    }
+    public void OnRestartPressed() { Time.timeScale = 1f; SceneManager.LoadScene(SceneManager.GetActiveScene().name); }
+    public void OnNextLevelPressed() { Time.timeScale = 1f; SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); }
+    public void OnMainMenuPressed() { Time.timeScale = 1f; SceneManager.LoadScene("MainMenu"); }
 }
