@@ -7464,7 +7464,6 @@ GameObject:
   - component: {fileID: 1095373702}
   - component: {fileID: 1095373701}
   - component: {fileID: 1095373700}
-  - component: {fileID: 1095373703}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -7558,19 +7557,6 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
---- !u!114 &1095373703
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1095373698}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c555d0b33054c7f44a74ae260bd01130, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InteractionManager
-  interactButton: {fileID: 2114593779}
 --- !u!1 &1176956570
 GameObject:
   m_ObjectHideFlags: 0
@@ -7949,7 +7935,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3748345747767361241, guid: f0c61660d5ee5e342af12abc85218c03, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.074847214
+      value: 0.084292926
       objectReference: {fileID: 0}
     - target: {fileID: 3748345747767361241, guid: f0c61660d5ee5e342af12abc85218c03, type: 3}
       propertyPath: m_LocalScale.z
@@ -7957,11 +7943,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3748345747767361241, guid: f0c61660d5ee5e342af12abc85218c03, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.003
+      value: -0.005
       objectReference: {fileID: 0}
     - target: {fileID: 3748345747767361241, guid: f0c61660d5ee5e342af12abc85218c03, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.179
+      value: -0.238
       objectReference: {fileID: 0}
     - target: {fileID: 3748345747767361241, guid: f0c61660d5ee5e342af12abc85218c03, type: 3}
       propertyPath: m_LocalPosition.z
@@ -8438,8 +8424,8 @@ Transform:
   m_GameObject: {fileID: 1567898717}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: -0.0226, z: 0}
-  m_LocalScale: {x: 1, y: 0.9382864, z: 1}
+  m_LocalPosition: {x: 0.00179, y: -0.0226, z: 0}
+  m_LocalScale: {x: 0.93771034, y: 0.9382864, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 228674409}
@@ -8460,8 +8446,9 @@ MonoBehaviour:
   requiredKeyName: DrawerKey
   messageText: {fileID: 1983560663}
   messageDuration: 1.5
-  openPosition: {x: 0, y: 3, z: -6}
-  moveSpeed: 5
+  openPosition: {x: -33, y: 2.5, z: 0}
+  moveSpeed: 1.5
+  interactButton: {fileID: 2114593779}
 --- !u!61 &1567898720
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8496,7 +8483,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: -0.026298016}
+  m_Offset: {x: 0, y: -0.1029419}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -8506,7 +8493,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1.0525961}
+  m_Size: {x: 1, y: 1.205883}
   m_EdgeRadius: 0
 --- !u!212 &1567898721
 SpriteRenderer:
@@ -10414,7 +10401,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1983560663
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11298,7 +11285,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2114593780}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1567898719}
+        m_TargetAssemblyTypeName: Drawer, Assembly-CSharp
+        m_MethodName: OnInteract
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2114593780
 MonoBehaviour:
   m_ObjectHideFlags: 0

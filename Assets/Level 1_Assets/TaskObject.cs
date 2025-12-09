@@ -31,7 +31,7 @@ public class TaskObject : MonoBehaviour
         }
     }
 
-    public void OnInteract()
+    public virtual void OnInteract()
     {
         if (levelManager != null)
         {

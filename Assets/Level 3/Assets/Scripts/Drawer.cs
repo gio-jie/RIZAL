@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using System.Collections;
+using UnityEngine.UI;
 
 public class Drawer : MonoBehaviour
 {
@@ -10,21 +11,49 @@ public class Drawer : MonoBehaviour
     public float messageDuration = 1.5f;
 
     [Header("Open Movement Settings")]
-    public Vector3 openPosition = new Vector3(0f, 3f, 0f);
-    public float moveSpeed = 5f;
+    public Vector3 openPosition = new Vector3(-33f, 2.5f, 0f);
+    public float moveSpeed = 1.5f;
 
     private bool isOpen = false;
+    private PlayerInventory playerInventory;
+    public Button interactButton;
+
+    private void Start()
+    {
+        if (messageText != null)
+        {
+            messageText.gameObject.SetActive(false);
+        }
+
+        if (interactButton != null)
+            interactButton.gameObject.SetActive(false);
+            interactButton.onClick.AddListener(OnInteract);
+    }
 
     private void OnTriggerEnter2D(Collider2D col)
     {
         if (!col.CompareTag("Player")) return;
+        playerInventory = col.GetComponent<PlayerInventory>();
 
-        PlayerInventory inventory = col.GetComponent<PlayerInventory>();
-        if (inventory == null) return;
+        if (interactButton != null)
+            interactButton.gameObject.SetActive(true);
+    }
 
-        if (isOpen) return; // Already opened
+    private void OnTriggerExit2D(Collider2D col)
+    {
+        if (!col.CompareTag("Player")) return;
 
-        if (inventory.collectedItems.Contains(requiredKeyName))
+        playerInventory = null;
+        if (interactButton != null)
+            interactButton.gameObject.SetActive(false);
+    }
+
+    public void OnInteract()
+    {
+        if (playerInventory == null) return;
+        if (isOpen) return;
+
+        if (playerInventory.collectedItems.Contains(requiredKeyName))
         {
             StartCoroutine(OpenDrawer());
         }
@@ -45,7 +74,7 @@ public class Drawer : MonoBehaviour
         while (t < 1f)
         {
             t += Time.deltaTime * moveSpeed;
-            transform.position = Vector3.Lerp(startPos, targetPos, t);
+            transform.position = Vector3.Lerp(startPos, targetPos, t / messageDuration);
             yield return null;
         }
 

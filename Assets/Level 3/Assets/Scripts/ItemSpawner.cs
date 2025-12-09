@@ -4,7 +4,7 @@ using UnityEngine;
 public class ItemSpawner : MonoBehaviour
 {
     public GameObject[] itemPrefabs; // 3 item prefabs
-    public Transform[] spawnPoints;  // assign all spawn points in inspector
+    public Transform[] spawnPoints;  // all spawn points
 
     void Start()
     {
@@ -13,7 +13,6 @@ public class ItemSpawner : MonoBehaviour
 
     void SpawnItems()
     {
-        // Convert spawnPoints into a list so we can remove chosen points
         List<Transform> availablePoints = new List<Transform>(spawnPoints);
 
         for (int i = 0; i < itemPrefabs.Length; i++)
