@@ -196,6 +196,8 @@ MonoBehaviour:
   totalLoot: 0
   targetLootCount: 3
   lootText: {fileID: 0}
+  notificationObject: {fileID: 0}
+  displayDuration: 4
   collectedItems: []
   levelExit: {fileID: 0}
 --- !u!61 &6690330608527659535
