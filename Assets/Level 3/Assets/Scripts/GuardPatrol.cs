@@ -14,6 +14,10 @@ public class GuardPatrol : MonoBehaviour
     public float chaseSpeed = 4f;
     public Transform player;
     public bool isChasing = false;
+
+    [Header("HIDE DETECTION")]
+    public bool canDetectPlayer = true;
+
     [Tooltip("Seconds the guard will keep chasing after losing sight")]
     public float loseSightTime = 2f;
     float loseSightTimer = 0f;
@@ -110,6 +114,17 @@ public class GuardPatrol : MonoBehaviour
     // ========================
     void DetectPlayer()
     {
+        if (!canDetectPlayer)
+        {
+            // If currently chasing but player hides -> stop chase
+            if (isChasing)
+            {
+                isChasing = false;
+                loseSightTimer = 0f;
+            }
+            return;
+        }
+
         if (player == null || fov == null) return;
 
         Vector2 dirToPlayer = (player.position - transform.position);
