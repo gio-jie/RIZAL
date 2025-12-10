@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
-  tags: []
+  tags:
+  - LootItem
   layers:
   - Default
   - TransparentFX
@@ -37,9 +38,6 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
-  - 
   m_SortingLayers:
   - name: Default
     uniqueID: 0
@@ -50,6 +48,5 @@ TagManager:
   - name: Foreground
     uniqueID: 1966068929
     locked: 0
-
   m_RenderingLayers:
   - Default

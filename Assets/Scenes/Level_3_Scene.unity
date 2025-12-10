@@ -266,6 +266,7 @@ GameObject:
   - component: {fileID: 45844405}
   - component: {fileID: 45844406}
   - component: {fileID: 45844407}
+  - component: {fileID: 45844408}
   m_Layer: 7
   m_Name: SemiCabinetCanOpen
   m_TagString: Untagged
@@ -332,9 +333,9 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 1412852531
-  m_SortingLayer: 1
-  m_SortingOrder: 1
+  m_SortingLayerID: 1966068929
+  m_SortingLayer: 2
+  m_SortingOrder: 3
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -392,6 +393,22 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &45844408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 45844404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ff86ecd1888a244187c0e337cb7be82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CabinetInteract
+  closedSprite: {fileID: 357585243727820222, guid: 172804baa7d4f4d42aa10a605e3b0d5c, type: 3}
+  openedSprite: {fileID: 5292840100565717955, guid: 8c017c3fbbecbce468bd049026f1d18a, type: 3}
+  interactButton: {fileID: 2114593779}
+  itemTag: LootItem
 --- !u!1 &70151988
 GameObject:
   m_ObjectHideFlags: 0
@@ -12445,6 +12462,7 @@ GameObject:
   - component: {fileID: 1999737557}
   - component: {fileID: 1999737558}
   - component: {fileID: 1999737559}
+  - component: {fileID: 1999737560}
   m_Layer: 7
   m_Name: LockerCanOpen
   m_TagString: Untagged
@@ -12511,9 +12529,9 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 1412852531
-  m_SortingLayer: 1
-  m_SortingOrder: 1
+  m_SortingLayerID: 1966068929
+  m_SortingLayer: 2
+  m_SortingOrder: 3
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -12571,6 +12589,22 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1999737560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1999737556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ff86ecd1888a244187c0e337cb7be82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CabinetInteract
+  closedSprite: {fileID: 357585243727820222, guid: 172804baa7d4f4d42aa10a605e3b0d5c, type: 3}
+  openedSprite: {fileID: 5292840100565717955, guid: 8c017c3fbbecbce468bd049026f1d18a, type: 3}
+  interactButton: {fileID: 2114593779}
+  itemTag: LootItem
 --- !u!1 &2018364227
 GameObject:
   m_ObjectHideFlags: 0

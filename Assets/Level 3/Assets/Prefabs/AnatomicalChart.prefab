@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4262142304140286216}
   m_Layer: 0
   m_Name: AnatomicalChart
-  m_TagString: Untagged
+  m_TagString: LootItem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -143,4 +143,3 @@ MonoBehaviour:
   itemName: Loot
   itemValue: 1
   pickSound: {fileID: 0}
-  interactButton: {fileID: 3628414196433080910, guid: 7095219d4f358a145901c80ea3c76a0d, type: 3}
