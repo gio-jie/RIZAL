@@ -35,7 +35,7 @@ public class Drawer : MonoBehaviour
         if (!col.CompareTag("Player")) return;
         playerInventory = col.GetComponent<PlayerInventory>();
 
-        if (interactButton != null)
+        if (interactButton != null && !isOpen)
             interactButton.gameObject.SetActive(true);
     }
 
@@ -61,6 +61,8 @@ public class Drawer : MonoBehaviour
         {
             StartCoroutine(ShowLockedMessage());
         }
+
+        interactButton.gameObject.SetActive(false);
     }
 
     IEnumerator OpenDrawer()
@@ -78,6 +80,7 @@ public class Drawer : MonoBehaviour
             yield return null;
         }
 
+        interactButton.gameObject.SetActive(false);
         Debug.Log("Drawer opened!");
     }
 
