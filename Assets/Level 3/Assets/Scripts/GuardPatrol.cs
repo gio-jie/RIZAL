@@ -7,6 +7,7 @@ public class GuardPatrol : MonoBehaviour
     public Transform patrolPointA;
     public Transform patrolPointB;
     public float patrolSpeed = 2f;
+    public GameOverManager gameOverManager;
 
     private Transform currentTarget;
 
@@ -192,8 +193,16 @@ public class GuardPatrol : MonoBehaviour
     {
         if (col.collider.CompareTag("Player"))
         {
-            Debug.Log("GAME OVER!");
-            Time.timeScale = 0;
+            Debug.Log("GAME OVER TRIGGERED BY GUARD!");
+
+            if (gameOverManager != null)
+            {
+                gameOverManager.GameOver();
+            }
+            else
+            {
+                Debug.LogWarning("GameOverManager NOT ASSIGNED!");
+            }
         }
     }
 }
