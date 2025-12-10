@@ -1385,8 +1385,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::LevelManager
   scoreText: {fileID: 424179692}
   winPanel: {fileID: 1342250875}
+  joystickCanvas: {fileID: 0}
+  interactButton: {fileID: 0}
   gameOverPanel: {fileID: 1429848310}
   totalItems: 3
+  objectiveText: 'Collected Items: Collected Quinine, Herbal Leaves, Bandages.'
+  collectedKeys: []
 --- !u!82 &188942478
 AudioSource:
   m_ObjectHideFlags: 0
