@@ -80,6 +80,6 @@ public class PlayerInventory : MonoBehaviour
     void UpdateLootUI()
     {
         if (lootText != null)
-            lootText.text = "Items: " + totalLoot + "/" + targetLootCount;
+            lootText.text = "Map, Anatomical Chart, Student's Notebook:  " + totalLoot + "/" + targetLootCount;
     }
 }
