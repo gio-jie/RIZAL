@@ -50,7 +50,7 @@ public class CollectibleItem : MonoBehaviour
             if (interactButton != null)
             {
                 // Delay collection by 2 seconds
-                StartCoroutine(DelayedCollect(col, 2f));
+                StartCoroutine(DelayedCollect(col, 1.5f));
             }
             else
             {

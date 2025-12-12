@@ -142,4 +142,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NewMonoBehaviourScript
   itemName: Loot
   itemValue: 1
-  pickSound: {fileID: 0}
+  pickSound: {fileID: 8300000, guid: 8e9fecc6f968bfe4abad5125e155bb8d, type: 3}
