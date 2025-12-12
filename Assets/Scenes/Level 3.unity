@@ -15843,12 +15843,20 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 6767245760646511552, guid: bd23401ef9cb071468b94c0555043042, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.14140208
+      objectReference: {fileID: 0}
+    - target: {fileID: 6767245760646511552, guid: bd23401ef9cb071468b94c0555043042, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.1225783
+      objectReference: {fileID: 0}
+    - target: {fileID: 6767245760646511552, guid: bd23401ef9cb071468b94c0555043042, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.96
+      value: -5.1467
       objectReference: {fileID: 0}
     - target: {fileID: 6767245760646511552, guid: bd23401ef9cb071468b94c0555043042, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -5.45
+      value: -6.0243
       objectReference: {fileID: 0}
     - target: {fileID: 6767245760646511552, guid: bd23401ef9cb071468b94c0555043042, type: 3}
       propertyPath: m_LocalPosition.z
@@ -15972,7 +15980,7 @@ Animator:
   m_GameObject: {fileID: 783529495}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5ed3e7a3a7583344a8c7e378ca934a41, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
