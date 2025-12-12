@@ -7,6 +7,7 @@ public class GuardPatrol : MonoBehaviour
     public Transform patrolPointA;
     public Transform patrolPointB;
     public float patrolSpeed = 2f;
+    public GameOverManager gameOverManager;
 
     private Transform currentTarget;
 
@@ -14,6 +15,10 @@ public class GuardPatrol : MonoBehaviour
     public float chaseSpeed = 4f;
     public Transform player;
     public bool isChasing = false;
+
+    [Header("HIDE DETECTION")]
+    public bool canDetectPlayer = true;
+
     [Tooltip("Seconds the guard will keep chasing after losing sight")]
     public float loseSightTime = 2f;
     float loseSightTimer = 0f;
@@ -110,6 +115,17 @@ public class GuardPatrol : MonoBehaviour
     // ========================
     void DetectPlayer()
     {
+        if (!canDetectPlayer)
+        {
+            // If currently chasing but player hides -> stop chase
+            if (isChasing)
+            {
+                isChasing = false;
+                loseSightTimer = 0f;
+            }
+            return;
+        }
+
         if (player == null || fov == null) return;
 
         Vector2 dirToPlayer = (player.position - transform.position);
@@ -177,8 +193,16 @@ public class GuardPatrol : MonoBehaviour
     {
         if (col.collider.CompareTag("Player"))
         {
-            Debug.Log("GAME OVER!");
-            Time.timeScale = 0;
+            Debug.Log("GAME OVER TRIGGERED BY GUARD!");
+
+            if (gameOverManager != null)
+            {
+                gameOverManager.GameOver();
+            }
+            else
+            {
+                Debug.LogWarning("GameOverManager NOT ASSIGNED!");
+            }
         }
     }
 }

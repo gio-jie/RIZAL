@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
-  tags: []
+  tags:
+  - LootItem
   layers:
   - Default
   - TransparentFX
@@ -11,6 +12,9 @@ TagManager:
   - 
   - Water
   - UI
+  - Wall
+  - Item
+  - Enemy
   - 
   - 
   - Player
@@ -34,12 +38,15 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
-  - 
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 1412852531
+    locked: 0
+  - name: Foreground
+    uniqueID: 1966068929
     locked: 0
   m_RenderingLayers:
   - Default
