@@ -11,8 +11,13 @@ public class CabinetInteract : MonoBehaviour
     public Button interactButton;
 
     [Header("Item Detection")]
-    public string itemTag = "LootItem"; // tag used for items that spawn inside cabinets
-    
+    public string itemTag = "LootItem";
+
+    [Header("Transform Change When Closed")]
+    public bool applyClosedTransform = true;
+    public Vector3 closedPosition;   // target position when closed
+    public Vector3 closedScale = Vector3.one; // target scale when closed
+
     private bool isPlayerNearby = false;
     private bool isOpened = false;
     private SpriteRenderer sr;
@@ -20,6 +25,13 @@ public class CabinetInteract : MonoBehaviour
     private void Start()
     {
         sr = GetComponent<SpriteRenderer>();
+
+        // Apply closed transform if the cabinet starts in closed state
+        if (!isOpened)
+        {
+            sr.sprite = closedSprite;
+        }
+
         interactButton.gameObject.SetActive(false);
         interactButton.onClick.AddListener(OpenCabinet);
     }
@@ -44,6 +56,7 @@ public class CabinetInteract : MonoBehaviour
 
     private void OpenCabinet()
     {
+        ApplyClosedTransform();
         if (!isPlayerNearby || isOpened)
             return;
 
@@ -51,18 +64,29 @@ public class CabinetInteract : MonoBehaviour
         sr.sprite = openedSprite;
         interactButton.gameObject.SetActive(false);
 
-        // Reveal all items that share this cabinet’s trigger
         EnableNearbyItems();
+    }
+
+    public void CloseCabinet()
+    {
+        isOpened = false;
+        sr.sprite = closedSprite;
+    }
+
+    private void ApplyClosedTransform()
+    {
+        if (!applyClosedTransform) return;
+
+        transform.localPosition = closedPosition;
+        transform.localScale = closedScale;
     }
 
     private void EnableNearbyItems()
     {
-        // Find all objects in the scene with the tag
         GameObject[] items = GameObject.FindGameObjectsWithTag(itemTag);
 
         foreach (var item in items)
         {
-            // Only enable items that are overlapping this cabinet’s trigger collider
             if (GetComponent<Collider2D>().bounds.Contains(item.transform.position))
             {
                 item.SetActive(true);

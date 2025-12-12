@@ -1,39 +1,45 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 
-[RequireComponent(typeof(Rigidbody2D))]
 public class PlayerMovement : MonoBehaviour
 {
-    public float moveSpeed = 4f;
+    public float speed = 5f;
+    public VirtualJoystick joystick;
 
     private Rigidbody2D rb;
-    private Vector2 moveInput;
+    private Animator anim;
 
-    // Reference to generated InputActions class
-    private PlayerControls controls;
-
-    private void Awake()
+    void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        controls = new PlayerControls();
-
-        // Subscribe to Move input
-        controls.Player.Move.performed += ctx => moveInput = ctx.ReadValue<Vector2>();
-        controls.Player.Move.canceled += ctx => moveInput = Vector2.zero;
+        anim = GetComponent<Animator>();
+        anim.SetBool("IsWalking", false);
     }
 
-    private void OnEnable()
+    void FixedUpdate()
     {
-        controls.Player.Enable();
-    }
+        if (joystick == null) return;
 
-    private void OnDisable()
-    {
-        controls.Player.Disable();
-    }
+        Vector2 moveInput = joystick.InputDirection;
 
-    private void FixedUpdate()
-    {
-        rb.MovePosition(rb.position + moveInput * moveSpeed * Time.fixedDeltaTime);
+        if (moveInput != Vector2.zero)
+        {
+            // 1. Move
+            rb.MovePosition(rb.position + moveInput * speed * Time.fixedDeltaTime);
+
+            // 2. Rotate
+            float angle = Mathf.Atan2(moveInput.y, moveInput.x) * Mathf.Rad2Deg;
+            rb.rotation = angle - 90f;
+
+            // 3. Animate
+            anim.SetBool("IsWalking", true);
+        }
+        else
+        {
+            // --- MOVEMENT STOPPED ---
+            anim.SetBool("IsWalking", false);
+
+            // KILL SPINNING MOMENTUM
+            rb.angularVelocity = 0f;
+        }
     }
 }

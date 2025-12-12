@@ -104,4 +104,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::KeyItem
   keyName: DrawerKey
-  pickSound: {fileID: 0}
+  pickSound: {fileID: 8300000, guid: fe9423a1e695450418ae1941bfde2764, type: 3}

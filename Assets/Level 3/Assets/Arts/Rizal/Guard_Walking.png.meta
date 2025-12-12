@@ -1,28 +1,22 @@
 fileFormatVersion: 2
-guid: b3d0ab15b6a786e4e825da1c456a4db7
+guid: 236d4831bd219104a93d5dd175b5c3dd
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5822119280245604991
-    second: Walking Rizal_0
+      213: 8304386819775750374
+    second: Guard_Walking_0
   - first:
-      213: -8732770579090447784
-    second: Walking Rizal_1
+      213: 7259065672174745428
+    second: Guard_Walking_1
   - first:
-      213: -2985862888456252924
-    second: Walking Rizal_2
+      213: 8722057880338718265
+    second: Guard_Walking_2
   - first:
-      213: -8530964319781487752
-    second: Walking Rizal_3
+      213: 5815170709177094193
+    second: Guard_Walking_3
   - first:
-      213: 6002026663660591202
-    second: Walking Rizal_4
-  - first:
-      213: -7517257571553246033
-    second: Walking Rizal_5
-  - first:
-      213: -6851929222917656217
-    second: Walking Rizal_6
+      213: -3290776000959740739
+    second: Guard_Walking_4
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -69,7 +63,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -131,111 +125,111 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Walking Rizal_0
+      name: Guard_Walking_0
       rect:
         serializedVersion: 2
-        x: 223
-        y: 5301
-        width: 906
-        height: 1215
+        x: 214
+        y: 4467
+        width: 937
+        height: 1145
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 18df10d8c5da33fa0800000000000000
-      internalID: -5822119280245604991
+      spriteID: 6e06b2660db1f3370800000000000000
+      internalID: 8304386819775750374
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Walking Rizal_1
+      name: Guard_Walking_1
       rect:
         serializedVersion: 2
-        x: 340
-        y: 3943
-        width: 842
-        height: 1151
+        x: 206
+        y: 3252
+        width: 930
+        height: 1162
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 852e4503d67fec680800000000000000
-      internalID: -8732770579090447784
+      spriteID: 4573537c4c16db460800000000000000
+      internalID: 7259065672174745428
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Walking Rizal_2
+      name: Guard_Walking_2
       rect:
         serializedVersion: 2
-        x: 223
-        y: 2575
-        width: 906
-        height: 1213
+        x: 214
+        y: 2070
+        width: 937
+        height: 1145
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4021b81d5851096d0800000000000000
-      internalID: -2985862888456252924
+      spriteID: 93e5cf34e69fa0970800000000000000
+      internalID: 8722057880338718265
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Walking Rizal_3
+      name: Guard_Walking_3
       rect:
         serializedVersion: 2
-        x: 340
-        y: 1214
-        width: 842
-        height: 1153
+        x: 206
+        y: 889
+        width: 930
+        height: 1162
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 87b74ef662deb9980800000000000000
-      internalID: -8530964319781487752
+      spriteID: 130d1cc23f2a3b050800000000000000
+      internalID: 5815170709177094193
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Walking Rizal_4
+      name: Guard_Walking_4
       rect:
         serializedVersion: 2
-        x: 200
-        y: 334
-        width: 968
-        height: 623
+        x: 258
+        y: 152
+        width: 875
+        height: 724
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 26899e3537b7b4350800000000000000
-      internalID: 6002026663660591202
+      spriteID: db40a6399a0d452d0800000000000000
+      internalID: -3290776000959740739
       vertices: []
       indices: 
       edges: []
@@ -244,7 +238,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -252,15 +246,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries:
-      - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":5.0},"gridSpriteSize":{"x":1349.0,"y":1330.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+      entries: []
     nameFileIdTable:
-      Walking Rizal_0: -5822119280245604991
-      Walking Rizal_1: -8732770579090447784
-      Walking Rizal_2: -2985862888456252924
-      Walking Rizal_3: -8530964319781487752
-      Walking Rizal_4: 6002026663660591202
+      Guard_Walking_0: 8304386819775750374
+      Guard_Walking_1: 7259065672174745428
+      Guard_Walking_2: 8722057880338718265
+      Guard_Walking_3: 5815170709177094193
+      Guard_Walking_4: -3290776000959740739
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
